@@ -117,17 +117,6 @@ html, body {
   color: #fff;
 }
 
-/* Copy button */
-.tool-btn-copy {
-  background: var(--success);
-  color: #fff;
-  border-color: var(--success);
-  font-weight: 600;
-}
-.tool-btn-copy:hover { background: #045a32; border-color: #045a32; color: #fff; }
-.tool-btn-reset { background: #c0392b; color: #fff; border-color: #c0392b; font-weight: 600; }
-.tool-btn-reset:hover { background: #96281b; border-color: #96281b; color: #fff; }
-
 .tool-btn {
   background: #fff;
   border: 1px solid var(--border);
@@ -150,6 +139,10 @@ html, body {
 }
 .tool-btn-primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
 .tool-btn-danger { color: var(--danger); }
+.tool-btn-copy { background: var(--success); color: #fff; border-color: var(--success); font-weight: 600; }
+.tool-btn-copy:hover { background: #045a32; border-color: #045a32; color: #fff; }
+.tool-btn-reset { background: #c0392b; color: #fff; border-color: #c0392b; font-weight: 600; }
+.tool-btn-reset:hover { background: #96281b; border-color: #96281b; color: #fff; }
 
 /* ---------- Editor ---------- */
 .editor {
