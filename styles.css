@@ -63,18 +63,20 @@ html, body {
 /* ---------- Toolbar ---------- */
 .toolbar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 4px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--border);
   background: #fafafa;
   align-items: center;
 }
 .tool-group {
   display: flex;
-  gap: 4px;
-  padding-right: 8px;
+  gap: 3px;
+  padding-right: 6px;
   border-right: 1px solid var(--border);
+  flex-shrink: 0;
 }
 .tool-group:last-child { border-right: none; }
 .tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
@@ -122,14 +124,15 @@ html, body {
 .tool-btn {
   background: #fff;
   border: 1px solid var(--border);
-  padding: 6px 10px;
+  padding: 5px 8px;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   cursor: pointer;
   color: var(--text);
   transition: background 0.15s, border-color 0.15s, transform 0.05s;
-  min-width: 36px;
+  min-width: 32px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .tool-btn:hover { background: #eef3f8; border-color: var(--blue); }
 .tool-btn:active { transform: scale(0.97); }
