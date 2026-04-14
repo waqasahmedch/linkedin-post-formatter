@@ -172,18 +172,27 @@
     </main>
 
     <!-- Ad credit opt-in banner -->
-    <div id="adBanner" class="ad-banner" hidden>
-      <div class="ad-banner-content">
-        <span class="ad-banner-icon">🎉</span>
-        <div class="ad-banner-text">
-          <strong>Enjoying the tool?</strong>
-          Help spread the word — we can automatically add a small credit line to the bottom of your post each time you copy it. You can turn it off anytime.
-          <div class="ad-banner-preview">✍️ Formatted for free at format-your-post.waziray.com</div>
+    <div id="adBanner" class="ad-banner">
+      <!-- Full prompt (shown before decision) -->
+      <div id="adPrompt">
+        <div class="ad-banner-content">
+          <span class="ad-banner-icon">🎉</span>
+          <div class="ad-banner-text">
+            <strong>Help others discover this free tool.</strong>
+            Want to spread the word? We'll quietly add one line to the bottom of every post you copy. Zero effort on your part — and you can turn it off anytime.
+            <div class="ad-banner-preview">✍️ Formatted for free at format-your-post.waziray.com</div>
+          </div>
+        </div>
+        <div class="ad-banner-actions">
+          <button type="button" class="ad-btn ad-btn-yes" id="adOptIn">Yes</button>
+          <button type="button" class="ad-btn ad-btn-no" id="adOptOut">No</button>
         </div>
       </div>
-      <div class="ad-banner-actions">
-        <button type="button" class="ad-btn ad-btn-yes" id="adOptIn">👍 Yes, add it</button>
-        <button type="button" class="ad-btn ad-btn-no" id="adOptOut">No thanks</button>
+      <!-- Compact toggle (shown after decision) -->
+      <div id="adCompact" class="ad-compact" style="display:none">
+        <span class="ad-compact-icon">✍️</span>
+        <span class="ad-compact-label">Help others find this tool:</span>
+        <button type="button" id="adToggleBtn" class="ad-toggle-btn"></button>
       </div>
     </div>
 
@@ -248,10 +257,6 @@
       <p class="credits">
         Co-authored with <a href="https://claude.ai" target="_blank" rel="noopener"><strong>Claude</strong> by Anthropic</a>
       </p>
-      <p class="credits" id="adToggleRow" hidden>
-        Credit line when copying:
-        <button type="button" id="adToggleBtn" class="ad-toggle-btn"></button>
-      </p>
     </footer>
   </div>
 
@@ -290,6 +295,6 @@
       </div>
     </div>
   </div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

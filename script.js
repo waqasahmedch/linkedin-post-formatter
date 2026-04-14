@@ -460,10 +460,10 @@
   const AD_CREDIT_TEXT = '\n\n✍️ Formatted for free at format-your-post.waziray.com';
   const AD_KEY = 'adCreditOptIn';
 
-  const adBanner    = document.getElementById('adBanner');
+  const adPrompt    = document.getElementById('adPrompt');
+  const adCompact   = document.getElementById('adCompact');
   const adOptIn     = document.getElementById('adOptIn');
   const adOptOut    = document.getElementById('adOptOut');
-  const adToggleRow = document.getElementById('adToggleRow');
   const adToggleBtn = document.getElementById('adToggleBtn');
 
   function getAdPref() { return localStorage.getItem(AD_KEY); }
@@ -475,29 +475,26 @@
 
   function updateAdUI() {
     const pref = getAdPref();
-    // Show toggle row only once user has decided
     if (pref === 'yes' || pref === 'no') {
-      adToggleRow.hidden = false;
+      adPrompt.style.display  = 'none';
+      adCompact.style.display = 'flex';
       adToggleBtn.textContent = pref === 'yes' ? '✅ ON' : '❌ OFF';
-      adToggleBtn.className = 'ad-toggle-btn ' + (pref === 'yes' ? 'on' : 'off');
+      adToggleBtn.className   = 'ad-toggle-btn ' + (pref === 'yes' ? 'on' : 'off');
+    } else {
+      adPrompt.style.display  = '';
+      adCompact.style.display = 'none';
     }
   }
 
-  // Show banner if user hasn't decided yet
-  if (!getAdPref()) {
-    adBanner.hidden = false;
-  } else {
-    updateAdUI();
-  }
+  // Initialise banner state from saved preference
+  updateAdUI();
 
   adOptIn.addEventListener('click', () => {
-    adBanner.hidden = true;
     setAdPref('yes');
     showToast('👍 Credit line enabled — thanks for spreading the word!', 'success');
   });
 
   adOptOut.addEventListener('click', () => {
-    adBanner.hidden = true;
     setAdPref('no');
   });
 
