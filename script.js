@@ -88,8 +88,25 @@
     return out;
   }
 
+  // ---------- Platform state ----------
+  const PLATFORMS = {
+    linkedin: { limit: 3000, warn: 2700, placeholder: 'Paste or write your LinkedIn post here…' },
+    x:        { limit: 280,  warn: 250,  placeholder: 'Compose your X (Twitter) post here…' },
+  };
+  let activePlatform = 'linkedin';
+
   // ---------- Selection / editor helpers ----------
   const editor = document.getElementById('editor');
+  const charCount = document.getElementById('charCount');
+
+  function updateCharCount() {
+    const { limit, warn } = PLATFORMS[activePlatform];
+    const n = editor.innerText.replace(/\n$/, '').length;
+    charCount.textContent = `${n} / ${limit.toLocaleString()}`;
+    charCount.classList.remove('char-warn', 'char-over');
+    if (n > limit) charCount.classList.add('char-over');
+    else if (n > warn) charCount.classList.add('char-warn');
+  }
 
   function getSelectionInEditor() {
     const sel = window.getSelection();
@@ -246,21 +263,15 @@
   });
 
   // ---------- Platform toggle ----------
-  const PLATFORMS = {
-    linkedin: { limit: 3000, warn: 2700, placeholder: 'Paste or write your LinkedIn post here…' },
-    x:        { limit: 280,  warn: 250,  placeholder: 'Compose your X (Twitter) post here…' },
-  };
-  let activePlatform = 'linkedin';
-
   const platformLinkedIn = document.getElementById('platformLinkedIn');
   const platformX = document.getElementById('platformX');
 
   function switchPlatform(p) {
     activePlatform = p;
-    const cfg = PLATFORMS[p];
-    editor.setAttribute('data-placeholder', cfg.placeholder);
-    platformLinkedIn.classList.toggle('active', p === 'linkedin');
-    platformX.classList.toggle('active', p === 'x');
+    editor.setAttribute('data-placeholder', PLATFORMS[p].placeholder);
+    platformLinkedIn.classList.remove('active');
+    platformX.classList.remove('active');
+    (p === 'linkedin' ? platformLinkedIn : platformX).classList.add('active');
     updateCharCount();
   }
 
@@ -268,15 +279,6 @@
   platformX.addEventListener('click', () => switchPlatform('x'));
 
   // ---------- Char counter ----------
-  const charCount = document.getElementById('charCount');
-  function updateCharCount() {
-    const { limit, warn } = PLATFORMS[activePlatform];
-    const n = editor.innerText.length;
-    charCount.textContent = `${n} / ${limit}`;
-    charCount.classList.remove('char-warn', 'char-over');
-    if (n > limit) charCount.classList.add('char-over');
-    else if (n > warn) charCount.classList.add('char-warn');
-  }
   editor.addEventListener('input', updateCharCount);
   updateCharCount();
 
