@@ -2,7 +2,7 @@
 
 > **Free online tool** to format posts for LinkedIn, X (Twitter), Instagram, Threads, and Truth Social — with bold, italic, underline, strikethrough, bullets, emojis, hashtags and mentions. No sign-up required. Works 100% offline.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20it%20now-blue?style=for-the-badge)](https://main.d1rcdrpkdmi5yf.amplifyapp.com/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20it%20now-blue?style=for-the-badge)](https://format-your-post.waziray.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/waqasahmedch/format-your-post?style=for-the-badge)](https://github.com/waqasahmedch/format-your-post/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/waqasahmedch/format-your-post?style=for-the-badge)](https://github.com/waqasahmedch/format-your-post/fork)
@@ -45,7 +45,7 @@ LinkedIn, X (Twitter), Instagram, Threads, and Truth Social **do not support nat
 
 ## 🚀 Live Demo
 
-**[Try it now → https://main.d1rcdrpkdmi5yf.amplifyapp.com/](https://main.d1rcdrpkdmi5yf.amplifyapp.com/)**
+**[Try it now → https://format-your-post.waziray.com](https://format-your-post.waziray.com)**
 
 ---
 
