@@ -192,6 +192,47 @@ html, body {
 }
 .emoji-item:hover { background: #eef3f8; }
 
+/* ---------- Feedback ---------- */
+.feedback { margin-top: 20px; }
+.feedback-title {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+.feedback-desc {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.feedback-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.feedback-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(10,102,194,0.1);
+}
+.feedback-card-icon { font-size: 1.5rem; }
+.feedback-card strong { font-size: 0.95rem; color: var(--blue); }
+.feedback-card span { font-size: 0.87rem; color: var(--muted); line-height: 1.5; }
+
+@media (max-width: 600px) {
+  .feedback-cards { grid-template-columns: 1fr; }
+}
+
 /* ---------- Privacy ---------- */
 .privacy { margin-top: 20px; }
 .privacy-box {
