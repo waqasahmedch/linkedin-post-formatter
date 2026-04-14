@@ -59,3 +59,10 @@ linkedin-post-formatter/
 ## License
 
 MIT — do whatever you want.
+
+## Credits
+
+Developed by **Waqas Ahmad**
+
+- Tech Blog: [waziray.wordpress.com](https://waziray.wordpress.com)
+- LinkedIn: [linkedin.com/in/waqasahmedch](https://www.linkedin.com/in/waqasahmedch)

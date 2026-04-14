@@ -214,6 +214,9 @@ html, body {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.credits { margin-top: 6px; }
+.credits a { color: var(--blue); text-decoration: none; }
+.credits a:hover { text-decoration: underline; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 600px) {
