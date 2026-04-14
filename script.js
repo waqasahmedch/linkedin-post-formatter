@@ -210,6 +210,7 @@
     numbered:   () => prefixSelectedLines((n) => n + '.'),
     spacer:     () => insertAtCaret('\n' + LINE_SPACER + '\n'),
     mention:    () => insertAtCaret('@'),
+    tag:        () => insertAtCaret('#'),
     'clear-format': () => clearSelectionFormatting(),
   };
 
