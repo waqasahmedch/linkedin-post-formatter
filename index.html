@@ -182,6 +182,22 @@
 
   <div id="toast" class="toast" aria-live="polite"></div>
 
+  <!-- Clear Formatting confirmation modal -->
+  <div id="clearFmtModal" class="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="clearFmtTitle">
+      <div class="modal-icon">🧹</div>
+      <h2 class="modal-title" id="clearFmtTitle">Clear Formatting?</h2>
+      <p class="modal-body">
+        This will remove all formatting (bold, italic, underline, strikethrough, etc.)
+        from your selected text. <strong>The text itself will remain.</strong>
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn modal-btn-danger" id="clearFmtConfirm">✕ Clear Formatting, I understand</button>
+        <button type="button" class="modal-btn modal-btn-cancel" id="clearFmtCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Reset confirmation modal -->
   <div id="resetModal" class="modal-backdrop" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

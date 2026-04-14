@@ -160,8 +160,18 @@
 
   function clearSelectionFormatting() {
     const txt = getSelectedText();
-    if (!txt) { flashStatus('Select some text first', true); return; }
-    replaceSelection(stripFormatting(txt));
+    if (!txt) {
+      showToast('⚠️ No text selected — please highlight the text you want to clear formatting from.', 'warning');
+      return;
+    }
+    clearFmtModal.hidden = false;
+  }
+
+  function executeClearFormatting() {
+    const txt = getSelectedText();
+    if (txt) replaceSelection(stripFormatting(txt));
+    clearFmtModal.hidden = true;
+    showToast('✅ Formatting cleared from selected text.', 'success');
   }
 
   // ---------- Lists ----------
@@ -262,6 +272,15 @@
       ta.remove();
     }
   });
+
+  // ---------- Clear Formatting modal ----------
+  const clearFmtModal   = document.getElementById('clearFmtModal');
+  const clearFmtConfirm = document.getElementById('clearFmtConfirm');
+  const clearFmtCancel  = document.getElementById('clearFmtCancel');
+
+  clearFmtConfirm.addEventListener('click', () => executeClearFormatting());
+  clearFmtCancel.addEventListener('click', () => { clearFmtModal.hidden = true; });
+  clearFmtModal.addEventListener('click', (e) => { if (e.target === clearFmtModal) clearFmtModal.hidden = true; });
 
   // ---------- Reset ----------
   const resetModal    = document.getElementById('resetModal');
