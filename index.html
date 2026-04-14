@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Format your LinkedIn and X (Twitter) posts with bold, italic, underline, bullets, emojis and more. Copy-paste ready. Free." />
   <title>Social Media Post Formatter</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="app">
@@ -82,10 +82,6 @@
           </div>
         </div>
 
-        <div class="tool-group tool-group-right">
-          <button type="button" class="tool-btn tool-btn-copy" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
-          <button type="button" class="tool-btn tool-btn-reset" id="resetBtn" title="Reset editor">↺ Reset</button>
-        </div>
       </div>
 
       <!-- Emoji picker (hidden by default) -->
@@ -110,6 +106,10 @@
       <div class="status-bar">
         <span id="charCount">0 / 3000</span>
         <span id="statusMsg" class="status-msg"></span>
+        <div class="status-actions">
+          <button type="button" class="tool-btn tool-btn-copy" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
+          <button type="button" class="tool-btn tool-btn-reset" id="resetBtn" title="Reset editor">↺ Reset</button>
+        </div>
       </div>
     </main>
 
