@@ -44,14 +44,11 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px; height: 36px;
-  background: var(--blue);
-  color: #fff;
-  border-radius: 6px;
-  font-weight: 800;
-  font-style: italic;
-  font-size: 1.1rem;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
+.logo svg { width: 40px; height: 40px; }
 .subtitle { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
 /* ---------- Editor wrap ---------- */
@@ -80,30 +77,59 @@ html, body {
   border-right: 1px solid var(--border);
 }
 .tool-group:last-child { border-right: none; }
-.tool-group-right { margin-left: auto; border-right: none; padding-right: 0; gap: 8px; }
+.tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
 
-/* Platform toggle */
+/* Platform bar */
+.platform-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: #fafafa;
+}
+.platform-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
 .platform-toggle {
   display: flex;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
+  gap: 8px;
 }
 .platform-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   background: #fff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  font-weight: 700;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
   cursor: pointer;
   color: var(--muted);
-  transition: background 0.15s, color 0.15s;
-  border-right: 1px solid var(--border);
-  line-height: 1;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  font-size: 0.88rem;
 }
-.platform-btn:last-child { border-right: none; }
-.platform-btn:hover { background: #eef3f8; color: var(--blue); }
-.platform-btn.active { background: var(--blue); color: #fff; }
+.platform-btn:hover { border-color: var(--blue); color: var(--blue); }
+.platform-btn.active {
+  border-color: var(--blue);
+  background: #eef3f8;
+  color: var(--blue);
+  font-weight: 600;
+}
+.platform-icon { font-weight: 800; font-size: 1rem; }
+.platform-limit {
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: #e8e8e8;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+.platform-btn.active .platform-limit {
+  background: #c8dff7;
+  color: var(--blue);
+}
 
 .tool-btn {
   background: #fff;
