@@ -18,12 +18,20 @@ LinkedIn doesn't support rich text, so this tool uses **Unicode math characters*
 
 ## Run locally
 
-Just open `index.html` in any modern browser. That's it.
+### Method 1 — No setup required (recommended for most users)
+
+1. Click the green **Code** button at the top of this page
+2. Select **Download ZIP**
+3. Unzip the downloaded file
+4. Open the unzipped folder and double-click **index.html**
+
+That's it — the app opens directly in your browser. No installation, no internet connection needed.
+
+### Method 2 — For developers (via Git)
 
 ```bash
 git clone https://github.com/waqasahmedch/linkedin-post-formatter.git
 cd linkedin-post-formatter
-# Double-click index.html, or:
 python3 -m http.server 8000    # then visit http://localhost:8000
 ```
 
