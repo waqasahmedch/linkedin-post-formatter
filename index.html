@@ -52,18 +52,23 @@
           <button type="button" class="tool-btn tool-btn-danger" data-action="clear-format" title="Clear formatting on selection">✕ Clear Fmt</button>
         </div>
 
-        <div class="tool-group tool-group-right">
+        <div class="tool-group">
           <div class="platform-toggle" role="group" aria-label="Select platform">
-            <button type="button" class="platform-btn active" id="platformLinkedIn" title="LinkedIn — 3,000 chars">
+            <button type="button" class="platform-btn active" id="platformLinkedIn">
               <span class="platform-icon">in</span>
               <span class="platform-name">LinkedIn</span>
+              <span class="platform-limit">3,000 chars</span>
             </button>
-            <button type="button" class="platform-btn" id="platformX" title="X / Twitter — 280 chars">
+            <button type="button" class="platform-btn" id="platformX">
               <span class="platform-icon">𝕏</span>
-              <span class="platform-name">X</span>
+              <span class="platform-name">X / Twitter</span>
+              <span class="platform-limit">280 chars</span>
             </button>
           </div>
-          <button type="button" class="tool-btn tool-btn-primary" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
+        </div>
+
+        <div class="tool-group tool-group-right">
+          <button type="button" class="tool-btn tool-btn-copy" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
           <button type="button" class="tool-btn" id="resetBtn" title="Reset editor">🗑 Reset</button>
         </div>
       </div>

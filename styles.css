@@ -79,35 +79,52 @@ html, body {
 .tool-group:last-child { border-right: none; }
 .tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
 
-/* Platform toggle (inline in toolbar) */
+/* Platform toggle */
 .platform-toggle {
   display: flex;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
+  gap: 6px;
 }
 .platform-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   background: #fff;
-  border: none;
-  border-right: 1px solid var(--border);
-  padding: 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 10px;
   cursor: pointer;
   color: var(--muted);
-  font-size: 0.88rem;
-  transition: background 0.15s, color 0.15s;
+  font-size: 0.85rem;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
   white-space: nowrap;
 }
-.platform-btn:last-child { border-right: none; }
-.platform-btn:hover:not(.active) { background: #f0f0f0; color: var(--text); }
+.platform-btn:hover:not(.active) { border-color: #aaa; color: var(--text); }
 .platform-btn.active {
+  border-color: var(--blue);
   background: var(--blue);
   color: #fff;
   font-weight: 600;
 }
 .platform-icon { font-weight: 800; font-size: 0.95rem; }
+.platform-limit {
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.08);
+  padding: 1px 5px;
+  border-radius: 8px;
+}
+.platform-btn.active .platform-limit {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* Copy button */
+.tool-btn-copy {
+  background: var(--success);
+  color: #fff;
+  border-color: var(--success);
+  font-weight: 600;
+}
+.tool-btn-copy:hover { background: #045a32; border-color: #045a32; color: #fff; }
 
 .tool-btn {
   background: #fff;
