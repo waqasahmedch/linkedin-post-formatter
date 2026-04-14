@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Format your LinkedIn and X (Twitter) posts with bold, italic, underline, bullets, emojis and more. Copy-paste ready. Free." />
   <title>Social Media Post Formatter</title>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <div class="app">
@@ -26,7 +26,7 @@
         </span>
         Format Your Social Media Post
       </h1>
-      <p class="subtitle">Write, format, and copy — ready to paste into LinkedIn or X (Twitter). <strong>FREE.</strong></p>
+      <p class="subtitle">Write, format, and copy — ready to paste into LinkedIn, X, Instagram, Threads, or Truth Social. <strong>FREE.</strong></p>
     </header>
 
     <main class="editor-wrap">
@@ -57,12 +57,27 @@
             <button type="button" class="platform-btn active" id="platformLinkedIn">
               <span class="platform-icon">in</span>
               <span class="platform-name">LinkedIn</span>
-              <span class="platform-limit">3,000 chars</span>
+              <span class="platform-limit">3,000</span>
             </button>
             <button type="button" class="platform-btn" id="platformX">
               <span class="platform-icon">𝕏</span>
-              <span class="platform-name">X / Twitter</span>
-              <span class="platform-limit">280 chars</span>
+              <span class="platform-name">X</span>
+              <span class="platform-limit">280</span>
+            </button>
+            <button type="button" class="platform-btn" id="platformInstagram">
+              <span class="platform-icon">IG</span>
+              <span class="platform-name">Instagram</span>
+              <span class="platform-limit">2,200</span>
+            </button>
+            <button type="button" class="platform-btn" id="platformThreads">
+              <span class="platform-icon">@</span>
+              <span class="platform-name">Threads</span>
+              <span class="platform-limit">500</span>
+            </button>
+            <button type="button" class="platform-btn" id="platformTruth">
+              <span class="platform-icon">TS</span>
+              <span class="platform-name">Truth Social</span>
+              <span class="platform-limit">500</span>
             </button>
           </div>
         </div>
@@ -102,7 +117,7 @@
       <details>
         <summary>How does this work? (click to expand)</summary>
         <p>
-          Neither LinkedIn nor X (Twitter) support native rich text formatting when composing posts. This tool uses <strong>Unicode Mathematical Alphanumeric Symbols</strong> — characters that visually <em>look</em> bold or italic — which render as formatted text on both platforms. Underline and strikethrough use invisible <strong>combining characters</strong> appended after each letter. Since it's all real text (not images), it stays formatted when you paste.
+          LinkedIn, X (Twitter), Instagram, Threads, and Truth Social all share the same limitation — none of them support native bold or italic formatting when composing posts. This tool uses <strong>Unicode Mathematical Alphanumeric Symbols</strong> — characters that visually <em>look</em> bold or italic — which render as formatted text across all these platforms. Underline and strikethrough use invisible <strong>combining characters</strong> appended after each letter. Since it's all real text (not images), it stays formatted when you paste.
         </p>
         <p>
           <strong>@ Mention</strong> inserts an <code>@</code> at your cursor — just type the handle right after. Mentions work on both LinkedIn and X.
@@ -111,7 +126,7 @@
           <strong>Line Spacer</strong> inserts an invisible character so LinkedIn doesn't collapse your blank lines.
         </p>
         <p>
-          <strong>Platform toggle (in / 𝕏):</strong> Switch between LinkedIn (3,000 character limit) and X (280 character limit) — the counter updates automatically.
+          <strong>Platform toggle:</strong> Switch between LinkedIn (3,000), Instagram (2,200), Threads (500), Truth Social (500), and X (280) — the character counter updates automatically for each platform.
         </p>
         <p>
           <strong>Tip:</strong> Select text first, then click a formatting button. Or use keyboard shortcuts Ctrl/Cmd+B, Ctrl/Cmd+I, Ctrl/Cmd+U.

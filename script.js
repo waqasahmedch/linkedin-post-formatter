@@ -90,8 +90,11 @@
 
   // ---------- Platform state ----------
   const PLATFORMS = {
-    linkedin: { limit: 3000, warn: 2700, placeholder: 'Paste or write your LinkedIn post here…' },
-    x:        { limit: 280,  warn: 250,  placeholder: 'Compose your X (Twitter) post here…' },
+    linkedin:    { limit: 3000, warn: 2700, label: 'LinkedIn',      placeholder: 'Paste or write your LinkedIn post here…' },
+    x:           { limit: 280,  warn: 250,  label: 'X / Twitter',   placeholder: 'Compose your X (Twitter) post here…' },
+    instagram:   { limit: 2200, warn: 2000, label: 'Instagram',     placeholder: 'Write your Instagram caption here…' },
+    threads:     { limit: 500,  warn: 450,  label: 'Threads',       placeholder: 'Write your Threads post here…' },
+    truthsocial: { limit: 500,  warn: 450,  label: 'Truth Social',  placeholder: 'Write your Truth Social post here…' },
   };
   let activePlatform = 'linkedin';
 
@@ -243,7 +246,7 @@
     }
     try {
       await navigator.clipboard.writeText(editor.innerText);
-      showToast('✅ Post copied to clipboard! Head over to LinkedIn or X and paste it.', 'success');
+      showToast(`✅ Post copied! Head over to ${PLATFORMS[activePlatform].label} and paste it.`, 'success');
     } catch {
       const ta = document.createElement('textarea');
       ta.value = editor.innerText;
@@ -251,7 +254,7 @@
       ta.select();
       try {
         document.execCommand('copy');
-        showToast('✅ Post copied to clipboard! Head over to LinkedIn or X and paste it.', 'success');
+        showToast(`✅ Post copied! Head over to ${PLATFORMS[activePlatform].label} and paste it.`, 'success');
       } catch {
         showToast('❌ Copy failed — please select the text and copy manually.', 'error');
       }
@@ -307,22 +310,29 @@
   });
 
   // ---------- Platform toggle ----------
-  const platformLinkedIn = document.getElementById('platformLinkedIn');
-  const platformX        = document.getElementById('platformX');
+  const platformBtnMap = {
+    platformLinkedIn: 'linkedin',
+    platformX:        'x',
+    platformInstagram:'instagram',
+    platformThreads:  'threads',
+    platformTruth:    'truthsocial',
+  };
+  const allPlatformBtns = Object.keys(platformBtnMap).map(id => document.getElementById(id));
 
   function switchPlatform(p) {
     activePlatform = p;
     editor.setAttribute('data-placeholder', PLATFORMS[p].placeholder);
-    [platformLinkedIn, platformX].forEach(btn => btn.classList.remove('active'));
-    (p === 'linkedin' ? platformLinkedIn : platformX).classList.add('active');
+    allPlatformBtns.forEach(btn => btn.classList.remove('active'));
+    const activeId = Object.keys(platformBtnMap).find(id => platformBtnMap[id] === p);
+    document.getElementById(activeId).classList.add('active');
     updateCharCount();
   }
 
-  // Use the container for delegation so clicks on inner <span> still register
   document.querySelector('.platform-toggle').addEventListener('click', (e) => {
     const btn = e.target.closest('.platform-btn');
     if (!btn) return;
-    switchPlatform(btn === platformLinkedIn ? 'linkedin' : 'x');
+    const platform = platformBtnMap[btn.id];
+    if (platform) switchPlatform(platform);
   });
 
   // ---------- Char counter ----------
