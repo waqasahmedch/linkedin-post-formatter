@@ -236,19 +236,25 @@
   // ---------- Copy ----------
   const copyBtn = document.getElementById('copyBtn');
   copyBtn.addEventListener('click', async () => {
-    const text = editor.innerText;
-    if (!text.trim()) { flashStatus('Nothing to copy', true); return; }
+    const text = editor.innerText.trim();
+    if (!text) {
+      showToast('⚠️ Content is empty — there is nothing to copy. Please write your post first.', 'warning');
+      return;
+    }
     try {
-      await navigator.clipboard.writeText(text);
-      flashStatus('✓ Copied! Paste into LinkedIn.');
+      await navigator.clipboard.writeText(editor.innerText);
+      showToast('✅ Post copied to clipboard! Head over to LinkedIn or X and paste it.', 'success');
     } catch {
-      // Fallback
       const ta = document.createElement('textarea');
-      ta.value = text;
+      ta.value = editor.innerText;
       document.body.appendChild(ta);
       ta.select();
-      try { document.execCommand('copy'); flashStatus('✓ Copied! Paste into LinkedIn.'); }
-      catch { flashStatus('Copy failed — please copy manually', true); }
+      try {
+        document.execCommand('copy');
+        showToast('✅ Post copied to clipboard! Head over to LinkedIn or X and paste it.', 'success');
+      } catch {
+        showToast('❌ Copy failed — please select the text and copy manually.', 'error');
+      }
       ta.remove();
     }
   });
@@ -285,7 +291,17 @@
   editor.addEventListener('input', updateCharCount);
   updateCharCount();
 
-  // ---------- Status flash ----------
+  // ---------- Toast notification ----------
+  const toast = document.getElementById('toast');
+  let toastTimer = null;
+  function showToast(msg, type = 'success') {
+    toast.textContent = msg;
+    toast.className = `toast toast-${type} show`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 3000);
+  }
+
+  // ---------- Status flash (used for non-copy messages) ----------
   const statusMsg = document.getElementById('statusMsg');
   let statusTimer = null;
   function flashStatus(msg, isError) {
