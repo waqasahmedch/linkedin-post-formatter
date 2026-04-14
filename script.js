@@ -264,19 +264,22 @@
 
   // ---------- Platform toggle ----------
   const platformLinkedIn = document.getElementById('platformLinkedIn');
-  const platformX = document.getElementById('platformX');
+  const platformX        = document.getElementById('platformX');
 
   function switchPlatform(p) {
     activePlatform = p;
     editor.setAttribute('data-placeholder', PLATFORMS[p].placeholder);
-    platformLinkedIn.classList.remove('active');
-    platformX.classList.remove('active');
+    [platformLinkedIn, platformX].forEach(btn => btn.classList.remove('active'));
     (p === 'linkedin' ? platformLinkedIn : platformX).classList.add('active');
     updateCharCount();
   }
 
-  platformLinkedIn.addEventListener('click', () => switchPlatform('linkedin'));
-  platformX.addEventListener('click', () => switchPlatform('x'));
+  // Use the container for delegation so clicks on inner <span> still register
+  document.querySelector('.platform-toggle').addEventListener('click', (e) => {
+    const btn = e.target.closest('.platform-btn');
+    if (!btn) return;
+    switchPlatform(btn === platformLinkedIn ? 'linkedin' : 'x');
+  });
 
   // ---------- Char counter ----------
   editor.addEventListener('input', updateCharCount);
