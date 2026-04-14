@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Format your LinkedIn posts with bold, italic, underline, bullets, emojis and more. Copy-paste ready." />
+  <title>LinkedIn Post Formatter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>
+        <span class="logo">in</span>
+        LinkedIn Post Formatter
+      </h1>
+      <p class="subtitle">Write, format, and copy — ready to paste into LinkedIn.</p>
+    </header>
+
+    <main class="editor-wrap">
+      <!-- Toolbar -->
+      <div class="toolbar" role="toolbar" aria-label="Formatting toolbar">
+        <div class="tool-group">
+          <button type="button" class="tool-btn" data-action="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+          <button type="button" class="tool-btn" data-action="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+          <button type="button" class="tool-btn" data-action="bolditalic" title="Bold Italic"><b><i>BI</i></b></button>
+          <button type="button" class="tool-btn" data-action="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+          <button type="button" class="tool-btn" data-action="strike" title="Strikethrough"><s>S</s></button>
+        </div>
+
+        <div class="tool-group">
+          <button type="button" class="tool-btn" data-action="bullet" title="Bulleted list">• List</button>
+          <button type="button" class="tool-btn" data-action="numbered" title="Numbered list">1. List</button>
+          <button type="button" class="tool-btn" data-action="spacer" title="Insert line spacer (prevents LinkedIn from collapsing blank lines)">↵ Spacer</button>
+        </div>
+
+        <div class="tool-group">
+          <button type="button" class="tool-btn" id="emojiBtn" title="Insert emoji">😀 Emoji</button>
+          <button type="button" class="tool-btn tool-btn-danger" data-action="clear-format" title="Clear formatting on selection">✕ Clear Fmt</button>
+        </div>
+
+        <div class="tool-group tool-group-right">
+          <button type="button" class="tool-btn tool-btn-primary" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
+          <button type="button" class="tool-btn" id="resetBtn" title="Reset editor">🗑 Reset</button>
+        </div>
+      </div>
+
+      <!-- Emoji picker (hidden by default) -->
+      <div class="emoji-picker" id="emojiPicker" hidden>
+        <div class="emoji-search">
+          <input type="text" id="emojiSearch" placeholder="Search emoji…" aria-label="Search emoji" />
+        </div>
+        <div class="emoji-categories" id="emojiCategories"></div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+      </div>
+
+      <!-- Editor -->
+      <div
+        id="editor"
+        class="editor"
+        contenteditable="true"
+        spellcheck="true"
+        aria-label="Post editor"
+        data-placeholder="Paste or write your LinkedIn post here…"
+      ></div>
+
+      <div class="status-bar">
+        <span id="charCount">0 / 3000</span>
+        <span id="statusMsg" class="status-msg"></span>
+      </div>
+    </main>
+
+    <section class="tips">
+      <details>
+        <summary>How does this work? (click to expand)</summary>
+        <p>
+          LinkedIn doesn't support real rich text. This tool uses <strong>Unicode math characters</strong>
+          that <em>look</em> bold/italic everywhere — including LinkedIn. Underline and strikethrough use
+          <strong>combining characters</strong>. That means it's real text, not an image, and it stays
+          formatted when you paste.
+        </p>
+        <p>
+          <strong>Line Spacer</strong> inserts an invisible character so LinkedIn doesn't collapse your blank lines.
+        </p>
+        <p>
+          <strong>Tip:</strong> Select text first, then click a formatting button. Or use keyboard shortcuts
+          Ctrl/Cmd+B, Ctrl/Cmd+I, Ctrl/Cmd+U.
+        </p>
+      </details>
+    </section>
+
+    <footer class="app-footer">
+      <p>Runs 100% offline in your browser. No data leaves your device.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
