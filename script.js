@@ -250,17 +250,17 @@
   // ---------- Copy ----------
   const copyBtn = document.getElementById('copyBtn');
   copyBtn.addEventListener('click', async () => {
-    const text = editor.innerText.trim();
-    if (!text) {
+    if (!editor.innerText.trim()) {
       showToast('⚠️ Content is empty — there is nothing to copy. Please write your post first.', 'warning');
       return;
     }
+    const text = getCopyText();
     try {
-      await navigator.clipboard.writeText(editor.innerText);
+      await navigator.clipboard.writeText(text);
       showToast(`✅ Post copied! Head over to ${PLATFORMS[activePlatform].label} and paste it.`, 'success');
     } catch {
       const ta = document.createElement('textarea');
-      ta.value = editor.innerText;
+      ta.value = text;
       document.body.appendChild(ta);
       ta.select();
       try {
@@ -455,6 +455,72 @@
     if (emojiPicker.contains(e.target) || emojiBtn.contains(e.target)) return;
     emojiPicker.hidden = true;
   });
+
+  // ---------- Ad credit opt-in ----------
+  const AD_CREDIT_TEXT = '\n\n✍️ Formatted for free at format-your-post.waziray.com';
+  const AD_KEY = 'adCreditOptIn';
+
+  const adBanner    = document.getElementById('adBanner');
+  const adOptIn     = document.getElementById('adOptIn');
+  const adOptOut    = document.getElementById('adOptOut');
+  const adToggleRow = document.getElementById('adToggleRow');
+  const adToggleBtn = document.getElementById('adToggleBtn');
+
+  function getAdPref() { return localStorage.getItem(AD_KEY); }
+
+  function setAdPref(val) {
+    localStorage.setItem(AD_KEY, val);
+    updateAdUI();
+  }
+
+  function updateAdUI() {
+    const pref = getAdPref();
+    // Show toggle row only once user has decided
+    if (pref === 'yes' || pref === 'no') {
+      adToggleRow.hidden = false;
+      adToggleBtn.textContent = pref === 'yes' ? '✅ ON' : '❌ OFF';
+      adToggleBtn.className = 'ad-toggle-btn ' + (pref === 'yes' ? 'on' : 'off');
+    }
+  }
+
+  // Show banner if user hasn't decided yet
+  if (!getAdPref()) {
+    adBanner.hidden = false;
+  } else {
+    updateAdUI();
+  }
+
+  adOptIn.addEventListener('click', () => {
+    adBanner.hidden = true;
+    setAdPref('yes');
+    showToast('👍 Credit line enabled — thanks for spreading the word!', 'success');
+  });
+
+  adOptOut.addEventListener('click', () => {
+    adBanner.hidden = true;
+    setAdPref('no');
+  });
+
+  adToggleBtn.addEventListener('click', () => {
+    const current = getAdPref();
+    const next = current === 'yes' ? 'no' : 'yes';
+    setAdPref(next);
+    showToast(next === 'yes'
+      ? '👍 Credit line enabled — thanks for spreading the word!'
+      : '✅ Credit line disabled.', 'success');
+  });
+
+  // Inject credit into copied text if opted in
+  function getCopyText() {
+    const base = editor.innerText;
+    if (getAdPref() !== 'yes') return base;
+    const { limit } = PLATFORMS[activePlatform];
+    if ((base + AD_CREDIT_TEXT).length > limit) {
+      showToast(`⚠️ Credit line not added — it would exceed the ${PLATFORMS[activePlatform].label} character limit.`, 'warning');
+      return base;
+    }
+    return base + AD_CREDIT_TEXT;
+  }
 
   // ---------- Initial focus ----------
   editor.focus();

@@ -60,7 +60,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
   <div class="app">
@@ -171,6 +171,22 @@
       </div>
     </main>
 
+    <!-- Ad credit opt-in banner -->
+    <div id="adBanner" class="ad-banner" hidden>
+      <div class="ad-banner-content">
+        <span class="ad-banner-icon">🎉</span>
+        <div class="ad-banner-text">
+          <strong>Enjoying the tool?</strong>
+          Help spread the word — we can automatically add a small credit line to the bottom of your post each time you copy it. You can turn it off anytime.
+          <div class="ad-banner-preview">✍️ Formatted for free at format-your-post.waziray.com</div>
+        </div>
+      </div>
+      <div class="ad-banner-actions">
+        <button type="button" class="ad-btn ad-btn-yes" id="adOptIn">👍 Yes, add it</button>
+        <button type="button" class="ad-btn ad-btn-no" id="adOptOut">No thanks</button>
+      </div>
+    </div>
+
     <section class="tips">
       <details>
         <summary>How does this work? (click to expand)</summary>
@@ -231,6 +247,10 @@
       </p>
       <p class="credits">
         Co-authored with <a href="https://claude.ai" target="_blank" rel="noopener"><strong>Claude</strong> by Anthropic</a>
+      </p>
+      <p class="credits" id="adToggleRow" hidden>
+        Credit line when copying:
+        <button type="button" id="adToggleBtn" class="ad-toggle-btn"></button>
       </p>
     </footer>
   </div>

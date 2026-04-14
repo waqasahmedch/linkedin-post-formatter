@@ -337,6 +337,62 @@ html, body {
 .toast.toast-warning { background: #e67e22; }
 .toast.toast-error   { background: #c0392b; }
 
+/* ---------- Ad credit banner ---------- */
+.ad-banner {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #fffbea 0%, #fff8e1 100%);
+  border: 1px solid #f0c040;
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.ad-banner-content {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.ad-banner-icon { font-size: 1.5rem; flex-shrink: 0; }
+.ad-banner-text { font-size: 0.92rem; color: #444; line-height: 1.6; }
+.ad-banner-text strong { color: var(--text); }
+.ad-banner-preview {
+  margin-top: 8px;
+  padding: 7px 12px;
+  background: #fff;
+  border: 1px dashed #f0c040;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.ad-banner-actions { display: flex; gap: 8px; }
+.ad-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.ad-btn:hover { opacity: 0.85; }
+.ad-btn-yes { background: var(--success); color: #fff; }
+.ad-btn-no  { background: #e8e8e8; color: #555; }
+
+/* Ad credit toggle in footer */
+.ad-toggle-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s;
+}
+.ad-toggle-btn:hover { background: #eef3f8; color: var(--blue); border-color: var(--blue); }
+.ad-toggle-btn.on  { background: var(--success); color: #fff; border-color: var(--success); }
+.ad-toggle-btn.off { background: #e8e8e8; color: #555; }
+
 /* ---------- Feedback ---------- */
 .feedback { margin-top: 20px; }
 .feedback-title {
