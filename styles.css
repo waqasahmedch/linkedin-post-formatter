@@ -262,7 +262,7 @@ html, body {
 /* ---------- Modal ---------- */
 .modal-backdrop {
   position: fixed;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0; /* inset: 0 — Safari <14 fallback */
   background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
@@ -312,10 +312,10 @@ html, body {
 /* ---------- Toast ---------- */
 .toast {
   position: fixed;
-  top: 24px;
+  top: 16px;
   left: 50%;
-  transform: translateX(-50%) translateY(-120px);
-  min-width: 300px;
+  transform: translateX(-50%) translateY(-140px);
+  width: calc(100% - 32px);
   max-width: 480px;
   padding: 14px 20px;
   border-radius: 10px;
@@ -424,16 +424,46 @@ html, body {
 
 /* ---------- Mobile ---------- */
 @media (max-width: 600px) {
-  .app { padding: 12px 8px 24px; }
-  .app-header h1 { font-size: 1.3rem; }
-  .toolbar { padding: 8px; }
-  .tool-group {
-    padding-right: 6px;
-    border-right: none;
-  }
-  .tool-group-right { margin-left: 0; width: 100%; justify-content: space-between; }
-  .tool-btn { padding: 6px 8px; font-size: 0.85rem; }
-  .editor { min-height: 240px; padding: 14px; font-size: 0.95rem; }
+  /* Layout */
+  .app { padding: 12px 12px 24px; }
+  .app-header h1 { font-size: 1.2rem; gap: 8px; }
+  .logo svg { width: 32px; height: 32px; }
+  .subtitle { font-size: 0.85rem; }
+
+  /* Toolbar */
+  .toolbar { padding: 6px 8px; gap: 4px; }
+  .tool-group { padding-right: 6px; }
+  /* Increase touch targets on mobile (min 44px height) */
+  .tool-btn { padding: 10px 8px; font-size: 0.82rem; min-height: 44px; }
+
+  /* Platform bar — allow buttons to wrap on small screens */
+  .platform-bar { padding: 6px 8px; gap: 6px; }
+  .platform-toggle { flex-wrap: wrap; overflow-x: visible; }
+  .platform-btn { padding: 8px 10px; min-height: 44px; font-size: 0.82rem; }
+
+  /* Editor */
+  .editor { min-height: 200px; padding: 12px; font-size: 0.95rem; }
+
+  /* Status bar — stack on very small screens */
+  .status-bar { flex-wrap: wrap; gap: 6px; padding: 6px 8px; }
+  .status-actions { margin-left: auto; }
+  .status-actions .tool-btn { min-height: 44px; padding: 10px 12px; }
+
+  /* Modal — full-width on mobile */
+  .modal { padding: 24px 16px 20px; border-radius: 12px; }
+  .modal-title { font-size: 1.05rem; }
+  .modal-btn { padding: 14px; min-height: 44px; }
+
+  /* Emoji grid — bigger tap targets */
+  .emoji-item { padding: 6px; min-height: 44px; }
+
+  /* Feedback cards already stack at 600px */
+}
+
+@media (max-width: 380px) {
+  /* Extra small phones */
+  .app-header h1 { font-size: 1rem; }
+  .platform-btn .platform-limit { display: none; } /* hide char limits to save space */
 }
 
 /* ---------- Print (just in case) ---------- */
