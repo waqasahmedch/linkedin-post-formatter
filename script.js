@@ -260,12 +260,50 @@
   });
 
   // ---------- Reset ----------
+  const resetModal    = document.getElementById('resetModal');
+  const modalReset    = document.getElementById('modalReset');
+  const modalCopyReset = document.getElementById('modalCopyReset');
+  const modalCancel   = document.getElementById('modalCancel');
+
+  function closeModal() { resetModal.hidden = true; }
+
+  function clearEditor() {
+    editor.innerHTML = '';
+    updateCharCount();
+    closeModal();
+    showToast('✅ Editor has been reset.', 'success');
+  }
+
   document.getElementById('resetBtn').addEventListener('click', () => {
-    if (!editor.innerText.trim() || confirm('Clear the editor?')) {
-      editor.innerHTML = '';
-      updateCharCount();
-      flashStatus('Editor cleared');
+    if (!editor.innerText.trim()) {
+      showToast('ℹ️ Nothing to reset — the editor is already empty.', 'warning');
+      return;
     }
+    resetModal.hidden = false;
+  });
+
+  modalReset.addEventListener('click', () => clearEditor());
+
+  modalCopyReset.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(editor.innerText);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = editor.innerText;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch {}
+      ta.remove();
+    }
+    clearEditor();
+    showToast('✅ Post copied to clipboard and editor reset. You can paste it anytime.', 'success');
+  });
+
+  modalCancel.addEventListener('click', () => closeModal());
+
+  // Close modal on backdrop click
+  resetModal.addEventListener('click', (e) => {
+    if (e.target === resetModal) closeModal();
   });
 
   // ---------- Platform toggle ----------

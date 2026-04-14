@@ -163,6 +163,24 @@
   </div>
 
   <div id="toast" class="toast" aria-live="polite"></div>
+
+  <!-- Reset confirmation modal -->
+  <div id="resetModal" class="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-icon">⚠️</div>
+      <h2 class="modal-title" id="modalTitle">Reset Editor?</h2>
+      <p class="modal-body">
+        This will permanently remove all your content and formatting.
+        <strong>This action cannot be undone.</strong><br><br>
+        Would you like to copy your post to the clipboard before resetting?
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn modal-btn-danger" id="modalReset">↺ Reset, I understand</button>
+        <button type="button" class="modal-btn modal-btn-success" id="modalCopyReset">📋 Copy &amp; Reset</button>
+        <button type="button" class="modal-btn modal-btn-cancel" id="modalCancel">✕ Cancel</button>
+      </div>
+    </div>
+  </div>
   <script src="script.js?v=3"></script>
 </body>
 </html>
