@@ -14,7 +14,7 @@
         <span class="logo">in</span>
         LinkedIn Post Formatter
       </h1>
-      <p class="subtitle">Write, format, and copy — ready to paste into LinkedIn. <strong>FREE.</strong></p>
+      <p class="subtitle">Write, format, and copy — ready to paste into LinkedIn or X (Twitter). <strong>FREE.</strong></p>
     </header>
 
     <main class="editor-wrap">
@@ -36,10 +36,15 @@
 
         <div class="tool-group">
           <button type="button" class="tool-btn" id="emojiBtn" title="Insert emoji">😀 Emoji</button>
+          <button type="button" class="tool-btn" data-action="mention" title="Insert mention">@ Mention</button>
           <button type="button" class="tool-btn tool-btn-danger" data-action="clear-format" title="Clear formatting on selection">✕ Clear Fmt</button>
         </div>
 
         <div class="tool-group tool-group-right">
+          <div class="platform-toggle" role="group" aria-label="Platform">
+            <button type="button" class="platform-btn active" id="platformLinkedIn" title="LinkedIn (3000 chars)">in</button>
+            <button type="button" class="platform-btn" id="platformX" title="X / Twitter (280 chars)">𝕏</button>
+          </div>
           <button type="button" class="tool-btn tool-btn-primary" id="copyBtn" title="Copy to clipboard">📋 Copy</button>
           <button type="button" class="tool-btn" id="resetBtn" title="Reset editor">🗑 Reset</button>
         </div>
@@ -74,17 +79,19 @@
       <details>
         <summary>How does this work? (click to expand)</summary>
         <p>
-          LinkedIn doesn't support real rich text. This tool uses <strong>Unicode math characters</strong>
-          that <em>look</em> bold/italic everywhere — including LinkedIn. Underline and strikethrough use
-          <strong>combining characters</strong>. That means it's real text, not an image, and it stays
-          formatted when you paste.
+          Neither LinkedIn nor X (Twitter) support native rich text formatting when composing posts. This tool uses <strong>Unicode Mathematical Alphanumeric Symbols</strong> — characters that visually <em>look</em> bold or italic — which render as formatted text on both platforms. Underline and strikethrough use invisible <strong>combining characters</strong> appended after each letter. Since it's all real text (not images), it stays formatted when you paste.
+        </p>
+        <p>
+          <strong>@ Mention</strong> inserts an <code>@</code> at your cursor — just type the handle right after. Mentions work on both LinkedIn and X.
         </p>
         <p>
           <strong>Line Spacer</strong> inserts an invisible character so LinkedIn doesn't collapse your blank lines.
         </p>
         <p>
-          <strong>Tip:</strong> Select text first, then click a formatting button. Or use keyboard shortcuts
-          Ctrl/Cmd+B, Ctrl/Cmd+I, Ctrl/Cmd+U.
+          <strong>Platform toggle (in / 𝕏):</strong> Switch between LinkedIn (3,000 character limit) and X (280 character limit) — the counter updates automatically.
+        </p>
+        <p>
+          <strong>Tip:</strong> Select text first, then click a formatting button. Or use keyboard shortcuts Ctrl/Cmd+B, Ctrl/Cmd+I, Ctrl/Cmd+U.
         </p>
       </details>
     </section>

@@ -189,6 +189,7 @@
     bullet:     () => prefixSelectedLines(() => '•'),
     numbered:   () => prefixSelectedLines((n) => n + '.'),
     spacer:     () => insertAtCaret('\n' + LINE_SPACER + '\n'),
+    mention:    () => insertAtCaret('@'),
     'clear-format': () => clearSelectionFormatting(),
   };
 
@@ -244,14 +245,37 @@
     }
   });
 
+  // ---------- Platform toggle ----------
+  const PLATFORMS = {
+    linkedin: { limit: 3000, warn: 2700, placeholder: 'Paste or write your LinkedIn post here…' },
+    x:        { limit: 280,  warn: 250,  placeholder: 'Compose your X (Twitter) post here…' },
+  };
+  let activePlatform = 'linkedin';
+
+  const platformLinkedIn = document.getElementById('platformLinkedIn');
+  const platformX = document.getElementById('platformX');
+
+  function switchPlatform(p) {
+    activePlatform = p;
+    const cfg = PLATFORMS[p];
+    editor.setAttribute('data-placeholder', cfg.placeholder);
+    platformLinkedIn.classList.toggle('active', p === 'linkedin');
+    platformX.classList.toggle('active', p === 'x');
+    updateCharCount();
+  }
+
+  platformLinkedIn.addEventListener('click', () => switchPlatform('linkedin'));
+  platformX.addEventListener('click', () => switchPlatform('x'));
+
   // ---------- Char counter ----------
   const charCount = document.getElementById('charCount');
   function updateCharCount() {
+    const { limit, warn } = PLATFORMS[activePlatform];
     const n = editor.innerText.length;
-    charCount.textContent = `${n} / 3000`;
+    charCount.textContent = `${n} / ${limit}`;
     charCount.classList.remove('char-warn', 'char-over');
-    if (n > 3000) charCount.classList.add('char-over');
-    else if (n > 2700) charCount.classList.add('char-warn');
+    if (n > limit) charCount.classList.add('char-over');
+    else if (n > warn) charCount.classList.add('char-warn');
   }
   editor.addEventListener('input', updateCharCount);
   updateCharCount();

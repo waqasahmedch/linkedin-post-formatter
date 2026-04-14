@@ -80,7 +80,30 @@ html, body {
   border-right: 1px solid var(--border);
 }
 .tool-group:last-child { border-right: none; }
-.tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
+.tool-group-right { margin-left: auto; border-right: none; padding-right: 0; gap: 8px; }
+
+/* Platform toggle */
+.platform-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.platform-btn {
+  background: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s;
+  border-right: 1px solid var(--border);
+  line-height: 1;
+}
+.platform-btn:last-child { border-right: none; }
+.platform-btn:hover { background: #eef3f8; color: var(--blue); }
+.platform-btn.active { background: var(--blue); color: #fff; }
 
 .tool-btn {
   background: #fff;
