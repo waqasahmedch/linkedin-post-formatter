@@ -63,9 +63,8 @@ html, body {
 /* ---------- Toolbar ---------- */
 .toolbar {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 6px;
   padding: 8px 10px;
   border-bottom: 1px solid var(--border);
   background: #fafafa;
@@ -73,13 +72,29 @@ html, body {
 }
 .tool-group {
   display: flex;
-  gap: 3px;
-  padding-right: 6px;
+  gap: 4px;
+  padding-right: 8px;
   border-right: 1px solid var(--border);
-  flex-shrink: 0;
 }
 .tool-group:last-child { border-right: none; }
 .tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
+
+/* ---------- Platform bar ---------- */
+.platform-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  background: #f5f5f5;
+  flex-wrap: wrap;
+}
+.platform-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
 
 /* Platform toggle */
 .platform-toggle {
@@ -124,15 +139,14 @@ html, body {
 .tool-btn {
   background: #fff;
   border: 1px solid var(--border);
-  padding: 5px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   cursor: pointer;
   color: var(--text);
   transition: background 0.15s, border-color 0.15s, transform 0.05s;
-  min-width: 32px;
+  min-width: 36px;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 .tool-btn:hover { background: #eef3f8; border-color: var(--blue); }
 .tool-btn:active { transform: scale(0.97); }

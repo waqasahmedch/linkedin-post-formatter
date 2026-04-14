@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Format your LinkedIn and X (Twitter) posts with bold, italic, underline, bullets, emojis and more. Copy-paste ready. Free." />
   <title>Social Media Post Formatter</title>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <div class="app">
@@ -53,36 +53,38 @@
           <button type="button" class="tool-btn tool-btn-danger" data-action="clear-format" title="Clear formatting on selection">✕ Clear Fmt</button>
         </div>
 
-        <div class="tool-group">
-          <div class="platform-toggle" role="group" aria-label="Select platform">
-            <button type="button" class="platform-btn active" id="platformLinkedIn">
-              <span class="platform-icon">in</span>
-              <span class="platform-name">LinkedIn</span>
-              <span class="platform-limit">3,000</span>
-            </button>
-            <button type="button" class="platform-btn" id="platformX">
-              <span class="platform-icon">𝕏</span>
-              <span class="platform-name">X</span>
-              <span class="platform-limit">280</span>
-            </button>
-            <button type="button" class="platform-btn" id="platformInstagram">
-              <span class="platform-icon">IG</span>
-              <span class="platform-name">Instagram</span>
-              <span class="platform-limit">2,200</span>
-            </button>
-            <button type="button" class="platform-btn" id="platformThreads">
-              <span class="platform-icon">@</span>
-              <span class="platform-name">Threads</span>
-              <span class="platform-limit">500</span>
-            </button>
-            <button type="button" class="platform-btn" id="platformTruth">
-              <span class="platform-icon">TS</span>
-              <span class="platform-name">Truth Social</span>
-              <span class="platform-limit">500</span>
-            </button>
-          </div>
-        </div>
+      </div>
 
+      <!-- Platform selector row -->
+      <div class="platform-bar">
+        <span class="platform-label">Posting to:</span>
+        <div class="platform-toggle" role="group" aria-label="Select platform">
+          <button type="button" class="platform-btn active" id="platformLinkedIn">
+            <span class="platform-icon">in</span>
+            <span class="platform-name">LinkedIn</span>
+            <span class="platform-limit">3,000 chars</span>
+          </button>
+          <button type="button" class="platform-btn" id="platformX">
+            <span class="platform-icon">𝕏</span>
+            <span class="platform-name">X / Twitter</span>
+            <span class="platform-limit">280 chars</span>
+          </button>
+          <button type="button" class="platform-btn" id="platformInstagram">
+            <span class="platform-icon">IG</span>
+            <span class="platform-name">Instagram</span>
+            <span class="platform-limit">2,200 chars</span>
+          </button>
+          <button type="button" class="platform-btn" id="platformThreads">
+            <span class="platform-icon">@</span>
+            <span class="platform-name">Threads</span>
+            <span class="platform-limit">500 chars</span>
+          </button>
+          <button type="button" class="platform-btn" id="platformTruth">
+            <span class="platform-icon">TS</span>
+            <span class="platform-name">Truth Social</span>
+            <span class="platform-limit">500 chars</span>
+          </button>
+        </div>
       </div>
 
       <!-- Emoji picker (hidden by default) -->
