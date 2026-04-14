@@ -4,8 +4,8 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20it%20now-blue?style=for-the-badge)](https://main.d1rcdrpkdmi5yf.amplifyapp.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/waqasahmedch/linkedin-post-formatter?style=for-the-badge)](https://github.com/waqasahmedch/linkedin-post-formatter/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/waqasahmedch/linkedin-post-formatter?style=for-the-badge)](https://github.com/waqasahmedch/linkedin-post-formatter/fork)
+[![GitHub Stars](https://img.shields.io/github/stars/waqasahmedch/format-your-post?style=for-the-badge)](https://github.com/waqasahmedch/format-your-post/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/waqasahmedch/format-your-post?style=for-the-badge)](https://github.com/waqasahmedch/format-your-post/fork)
 
 ---
 
@@ -63,8 +63,8 @@ That's it — the app opens directly in your browser. No installation, no intern
 ### Method 2 — For developers (via Git)
 
 ```bash
-git clone https://github.com/waqasahmedch/linkedin-post-formatter.git
-cd linkedin-post-formatter
+git clone https://github.com/waqasahmedch/format-your-post.git
+cd format-your-post
 python3 -m http.server 8000    # then visit http://localhost:8000
 ```
 
@@ -81,7 +81,7 @@ python3 -m http.server 8000    # then visit http://localhost:8000
 
 ## Privacy
 
-Everything you type stays entirely in your browser. No server, no database, no tracking. [Review the source code](https://github.com/waqasahmedch/linkedin-post-formatter) to verify.
+Everything you type stays entirely in your browser. No server, no database, no tracking. [Review the source code](https://github.com/waqasahmedch/format-your-post) to verify.
 
 ---
 
@@ -94,8 +94,8 @@ GitHub Pages, Netlify, Vercel, Cloudflare Pages, AWS Amplify, or S3.
 
 ## Feedback
 
-- 🐛 **Found a bug?** [Open a GitHub Issue](https://github.com/waqasahmedch/linkedin-post-formatter/issues/new)
-- 💡 **Have an idea?** [Start a GitHub Discussion](https://github.com/waqasahmedch/linkedin-post-formatter/discussions)
+- 🐛 **Found a bug?** [Open a GitHub Issue](https://github.com/waqasahmedch/format-your-post/issues/new)
+- 💡 **Have an idea?** [Start a GitHub Discussion](https://github.com/waqasahmedch/format-your-post/discussions)
 
 ---
 
