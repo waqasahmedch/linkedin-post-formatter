@@ -79,57 +79,35 @@ html, body {
 .tool-group:last-child { border-right: none; }
 .tool-group-right { margin-left: auto; border-right: none; padding-right: 0; }
 
-/* Platform bar */
-.platform-bar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  background: #fafafa;
-}
-.platform-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-weight: 500;
-  white-space: nowrap;
-}
+/* Platform toggle (inline in toolbar) */
 .platform-toggle {
   display: flex;
-  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
 }
 .platform-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: #fff;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  padding: 7px 14px;
+  border: none;
+  border-right: 1px solid var(--border);
+  padding: 6px 10px;
   cursor: pointer;
   color: var(--muted);
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
   font-size: 0.88rem;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
 }
-.platform-btn:hover:not(.active) { border-color: #aaa; background: #f5f5f5; }
+.platform-btn:last-child { border-right: none; }
+.platform-btn:hover:not(.active) { background: #f0f0f0; color: var(--text); }
 .platform-btn.active {
-  border-color: var(--blue);
   background: var(--blue);
   color: #fff;
   font-weight: 600;
 }
-.platform-icon { font-weight: 800; font-size: 1rem; }
-.platform-limit {
-  font-size: 0.78rem;
-  color: var(--muted);
-  background: #e8e8e8;
-  padding: 1px 6px;
-  border-radius: 10px;
-}
-.platform-btn.active .platform-limit {
-  background: rgba(255,255,255,0.25);
-  color: #fff;
-}
+.platform-icon { font-weight: 800; font-size: 0.95rem; }
 
 .tool-btn {
   background: #fff;
