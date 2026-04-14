@@ -125,6 +125,8 @@ html, body {
   font-weight: 600;
 }
 .tool-btn-copy:hover { background: #045a32; border-color: #045a32; color: #fff; }
+.tool-btn-reset { background: #c0392b; color: #fff; border-color: #c0392b; font-weight: 600; }
+.tool-btn-reset:hover { background: #96281b; border-color: #96281b; color: #fff; }
 
 .tool-btn {
   background: #fff;
