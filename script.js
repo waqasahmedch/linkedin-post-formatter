@@ -457,7 +457,7 @@
   });
 
   // ---------- Ad credit opt-in ----------
-  const AD_CREDIT_TEXT = '\n\n✍️ Formatted for free at format-your-post.waziray.com';
+  const AD_CREDIT_TEXT = '\n\n✍️ Formatted for free at formatpost.waziray.com';
   const AD_KEY = 'adCreditOptIn';
 
   const adPrompt    = document.getElementById('adPrompt');
